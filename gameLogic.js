@@ -6,21 +6,19 @@ function getComputerChoice() {
     return choice;
 }
 
-function playRound(playerSelection, computerSelection, playerScore, computerScore) {
-    let firstLetter = playerSelection.substring(0,1).toUpperCase();
-    playerSelection = firstLetter + playerSelection.substring(1).toLowerCase();
+function playRound(computerSelect, playerSelect) {
 
-    if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    if (playerSelect == "rock" && computerSelect == "Scissors") {
         playerScore++;
-        return `You win! ${playerSelection} beats ${computerSelection}.`, playerScore;
-    } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-        return `You win! ${playerSelection} beats ${computerSelection}.`;
-    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-        return `You win! ${playerSelection} beats ${computerSelection}`;
-    } else if (playerSelection == computerSelection) {
-        return `Oops, you tied. You both selected ${playerSelection}.`;
+        return `You win! ${playerSelect} beats ${computerSelect}.`, playerScore;
+    } else if (playerSelect == "scissors" && computerSelect == "Paper") {
+        return `You win! ${playerSelect} beats ${computerSelect}.`;
+    } else if (playerSelect == "paper" && computerSelect == "Rock") {
+        return `You win! ${playerSelect} beats ${computerSelect}`;
+    } else if (playerSelect == computerSelect) {
+        return `Oops, you tied. You both selected ${playerSelect}.`;
     } else {
-        return `You lose. ${computerSelection} beats ${playerSelection}.`;
+        return `You lose. ${computerSelect} beats ${playerSelect}.`;
     }
 }
 
@@ -28,22 +26,33 @@ function playGame() {
     var playerScore = 0;
     var computerScore = 0;
 
-    for (let round = 1; round < 6; round++) {
-        var playerChoice = prompt(`Round ${round}: Rock, Paper or Scissors?`);
-
-        let message = playRound(playerChoice, getComputerChoice());
-        
-        if (message.includes('win')) {
-            playerScore++;
-        } else if (message.includes('lose')) {
-            computerScore++;
-        } else {
-        }
-    
-        console.log(message);
-        let currScore = `your current score is ${playerScore}, and the computer's score is ${computerScore}.`;
-         console.log(`End of round ${round}, ${currScore}`);
+    if (message.includes('win')) {
+        playerScore++;
+    } else if (message.includes('lose')) {
+        computerScore++;
+    } else {
     }
+
+    console.log(message);
+    let currScore = `your current score is ${playerScore}, and the computer's score is ${computerScore}.`;
+    console.log(`End of round ${round}, ${currScore}`);
+
+    // for (let round = 1; round < 6; round++) {
+    //     var playerChoice = prompt(`Round ${round}: Rock, Paper or Scissors?`);
+
+    //     let message = playRound(playerChoice, getComputerChoice());
+        
+    //     if (message.includes('win')) {
+    //         playerScore++;
+    //     } else if (message.includes('lose')) {
+    //         computerScore++;
+    //     } else {
+    //     }
+    
+    //     console.log(message);
+    //     let currScore = `your current score is ${playerScore}, and the computer's score is ${computerScore}.`;
+    //      console.log(`End of round ${round}, ${currScore}`);
+    // }
 
     if (playerScore > computerScore) {
         let decision = `Congratulations! You won. Your score was ${playerScore} to ${computerScore}`;
@@ -57,4 +66,14 @@ function playGame() {
     }
 }
 
-//console.log(playGame());
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+console.log(buttons);
+
+// we use the .forEach method to iterate through each button
+var playerSelect = buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+    alert(playRound(getComputerChoice(),button.id));
+    });
+});
