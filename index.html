@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Rock, Paper, Scissors!</title>
+    <title>Pokemon Battle!</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <h1>Choose your fighter</h1>
+    <h2 class="title">Choose your fighter</h1>
     <div id="container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
+        <button class="button" id="grass">Grass</button>
+        <button class="button" id="fire">Fire</button>
+        <button class="button" id="water">Water</button>
     </div>
+    <div id="cheatsheet">
+        <h5>How to play:</h5>
+        <ul>
+            <li>Grass beats Water</li>
+            <li>Fire beats Grass</li>
+            <li>Water beats Fire</li>
+        </ul>
     </div>
     <script src ="gameLogic.js"></script>
 </body>
