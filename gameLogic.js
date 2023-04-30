@@ -1,25 +1,20 @@
 console.log("Welcome to the Odin Project - Rock Paper Scissors");
 
-// set buttons to node list of options
+// UI 
 const buttons = document.querySelectorAll('button');
-
-// tells what round player is on
 const roundStatus = document.createElement('h3'); 
-roundStatus.id = 'round';
-gameinfo.appendChild(roundStatus);
-
-// tells what the outcome of the round is + current score
 const gameStatus = document.createElement('h3');  
+roundStatus.id = 'round';
 gameStatus.id = 'game';
+gameinfo.appendChild(roundStatus);
 gameinfo.appendChild(gameStatus);
-
-// placeholders to know where data will update
 document.getElementById('round').textContent = 'Select your Pokemon to start';
-console.log(roundStatus.textContent);
-
+roundStatus.style.color = '#29a6e4';
 var playerScore = 0;
 var computerScore = 0;
 var round = 1;
+
+// GAME 
 
 function getComputerChoice() {
     let choiceList = ['Grass','Fire','Water'];
@@ -45,7 +40,6 @@ function playRound(computerSelect, playerSelect) {
     }
 }
 
-// using .forEach method to iterate through each button
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         
@@ -57,19 +51,56 @@ buttons.forEach((button) => {
             } else if (roundStatus.textContent.includes('lost')){
                 computerScore++;
             } else if (roundStatus.textContent.includes('ineffective')){
-                console.log("ya tied");
-            } else console.log("wut");
+                console.log("Tie");
+            } else console.log("Error");
             gameStatus.textContent = (`Your score: ${playerScore} | Opponent's score: ${computerScore}`);
         } else if (playerScore == 5) {
             alert(`You won! Victory is yours.`);
-            roundStatus.textContent = "Reload page to play again";
-            roundStatus.style.color = '#29a6e4';
+            roundStatus.textContent = "Select a Pokemon to play again";
+            playerScore = 0;
+            computerScore = 0;
         }
         else if (computerScore == 5) {
             alert('You lost to your opponent. Rematch?');
-            roundStatus.textContent = "Reload page to play again";
-            roundStatus.style.color = '#29a6e4';
+            roundStatus.textContent = "Select a Pokemon to play again";
+            playerScore = 0;
+            computerScore = 0;
         }
     });
 });
 
+// HOVER ACTION
+function addAction(e) {
+
+    // console.log(this.children);
+
+    if (this.children[0].src.includes('water')){
+        this.children[0].src = "img/water.gif";
+        this.classList.add('hover-water');
+    } else if (this.children[0].src.includes('fire')){
+        this.children[0].src = "img/fire.gif";
+        this.classList.add('hover-fire');
+    } else if (this.children[0].src.includes('grass')){
+        this.children[0].src = "img/grass.gif";
+        this.classList.add('hover-grass');
+    }
+
+}
+
+function removeTransition(e){
+    if (e.type !== 'mouseout') return;
+
+    if (this.children[0].src.includes('water')){
+        this.children[0].src = "img/water.png";
+        this.classList.remove('hover-water');
+    } else if (this.children[0].src.includes('fire')){
+        this.children[0].src = "img/fire.png";
+        this.classList.remove('hover-fire');
+    } else if (this.children[0].src.includes('grass')){
+        this.children[0].src = "img/grass.png";
+        this.classList.remove('hover-grass');
+    }
+}
+
+buttons.forEach((button) => button.addEventListener('mouseover', addAction));
+buttons.forEach((button) => button.addEventListener('mouseout', removeTransition));

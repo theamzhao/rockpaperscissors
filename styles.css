@@ -12,25 +12,40 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    margin: auto;
-    max-width: 100%; 
-    width: 2400px;
 }
 
 .button{
     display: flex;
-    flex-wrap: wrap;
     gap: 16px;
     min-height: 20px;
-    height: 200px;
     min-width: 20%;
-    margin: auto;
+    height: 200px;
+    width: auto;
+    transition: all .67s ease;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.hover-grass {
+    transform: scale(1.1);
+    border-color: #00ff4c;
+    box-shadow: 0 0 1rem #00ff4c;
+}
+
+.hover-fire {
+    transform: scale(1.1);
+    border-color: #ff9100;
+    box-shadow: 0 0 1rem #ff9100;
+}
+
+.hover-water {
+    transform: scale(1.1);
+    border-color: #00ffff;
+    box-shadow: 0 0 1rem #00ffff;
+}
+
 img {
     max-width: 30%;
     height: auto;
@@ -43,7 +58,6 @@ img {
 
 ul {
     display: flex; 
-    flex: 1 0 auto;
     flex-direction: row;
     justify-content: center;
     list-style: none;
@@ -79,6 +93,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 12px;
     height: 50px;
     width: 100%;
     background-color: aliceblue;
@@ -89,3 +104,8 @@ footer {
     margin-top: 2%;
 }
 
+.gitlogo {
+    display: flex;
+    align-items: center;
+    width: 50px;
+}
