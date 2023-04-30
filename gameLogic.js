@@ -6,12 +6,12 @@ const buttons = document.querySelectorAll('button');
 // tells what round player is on
 const roundStatus = document.createElement('h3'); 
 roundStatus.id = 'round';
-container.appendChild(roundStatus);
+gameinfo.appendChild(roundStatus);
 
 // tells what the outcome of the round is + current score
 const gameStatus = document.createElement('h3');  
 gameStatus.id = 'game';
-container.appendChild(gameStatus);
+gameinfo.appendChild(gameStatus);
 
 // placeholders to know where data will update
 document.getElementById('round').textContent = 'Select a Pokemon to start';
