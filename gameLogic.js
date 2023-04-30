@@ -72,8 +72,6 @@ buttons.forEach((button) => {
 // HOVER ACTION
 function addAction(e) {
 
-    // console.log(this.children);
-
     if (this.children[0].src.includes('water')){
         this.children[0].src = "img/water.gif";
         this.classList.add('hover-water');
