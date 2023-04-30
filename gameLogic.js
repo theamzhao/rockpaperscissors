@@ -14,7 +14,7 @@ gameStatus.id = 'game';
 gameinfo.appendChild(gameStatus);
 
 // placeholders to know where data will update
-document.getElementById('round').textContent = 'Select a Pokemon to start';
+document.getElementById('round').textContent = 'Select your Pokemon to start';
 console.log(roundStatus.textContent);
 
 var playerScore = 0;
@@ -33,15 +33,15 @@ function playRound(computerSelect, playerSelect) {
     playerSelect = firstLetter + playerSelect.substring(1).toLowerCase();
 
     if (playerSelect == "Grass" && computerSelect == "Water") {
-        document.getElementById('round').textContent = `You win! ${playerSelect} beats ${computerSelect}.`;
+        document.getElementById('round').textContent = `You chose ${playerSelect}. It's super effective against ${computerSelect}!`;
     } else if (playerSelect == "Water" && computerSelect == "Fire") {
-        document.getElementById('round').textContent = `You win! ${playerSelect} beats ${computerSelect}.`;
+        document.getElementById('round').textContent = `You chose ${playerSelect}. It's super effective against ${computerSelect}!`;
     } else if (playerSelect == "Fire" && computerSelect == "Grass") {
-        document.getElementById('round').textContent =  `You win! ${playerSelect} beats ${computerSelect}.`;
+        document.getElementById('round').textContent =  `You chose ${playerSelect}. It's super effective against ${computerSelect}!`;
     } else if (playerSelect == computerSelect) {
-        document.getElementById('round').textContent = `Oops, you tied. You both selected ${playerSelect}.`;
+        document.getElementById('round').textContent = ` You both selected ${playerSelect}. The attack was ineffective.`;
     } else {
-        document.getElementById('round').textContent = `You lose. ${computerSelect} beats ${playerSelect}.`;
+        document.getElementById('round').textContent = `Your lost. ${computerSelect} is super effective against ${playerSelect}.`;
     }
 }
 
@@ -52,17 +52,24 @@ buttons.forEach((button) => {
         if (playerScore < 5 && computerScore < 5){
             playRound(getComputerChoice(),button.id);
             
-            if (roundStatus.textContent.includes('win')){
+            if (roundStatus.textContent.includes(`It's`)){
                 playerScore++;
-            } else if (roundStatus.textContent.includes('lose')){
+            } else if (roundStatus.textContent.includes('lost')){
                 computerScore++;
-            } else if (roundStatus.textContent.includes('Oops')){
+            } else if (roundStatus.textContent.includes('ineffective')){
                 console.log("ya tied");
             } else console.log("wut");
-            gameStatus.textContent = (`player score is ${playerScore} and computer score is ${computerScore}`);
-        } else if (playerScore == 5) alert(`Game over, you won!`);
-        else if (computerScore == 5) alert('Game over, you lose!');
-
+            gameStatus.textContent = (`Your score: ${playerScore} | Opponent's score: ${computerScore}`);
+        } else if (playerScore == 5) {
+            alert(`You won! Victory is yours.`);
+            roundStatus.textContent = "Reload page to play again";
+            roundStatus.style.color = '#29a6e4';
+        }
+        else if (computerScore == 5) {
+            alert('You lost to your opponent. Rematch?');
+            roundStatus.textContent = "Reload page to play again";
+            roundStatus.style.color = '#29a6e4';
+        }
     });
 });
 

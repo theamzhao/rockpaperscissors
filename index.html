@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Pokemon Battle!</title>
+    <title>&#128165	Pokemon Battle!</title>
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <h2 class="title">Pokemon Battle!</h2>
-    <h3>Win against your opponent 5 times to claim victory!</h3>
+    <div class="header">
+        <h2 class="title">
+            <img src="img/pokeball.png" class="icon" alt="pixel pokeball">
+            Pokemon Battle!
+        </h2>
+        <h3>Win against your opponent 5 times to claim victory</h3>
+    </div>
     <div id="container">
-        <button class="button" id="grass">
-            Grass
-            <img src="img/grass.png" alt="pixel Bulbasaur">
-        </button>
-        <button class="button" id="fire">
-            Fire
-            <img src="img/fire.png" alt="pixel Charmander">
-        </button>
-        <button class="button" id="water">
-            Water
-            <img src="img/water.png" alt="pixel Squirtle">
-        </button>
+        <ul>
+            <li>
+                <button class="button" id="grass">
+                    Grass
+                    <img src="img/grass.png" alt="pixel Bulbasaur">
+                </button>
+            </li>
+            <li>
+                <button class="button" id="fire">
+                    Fire
+                    <img src="img/fire.png" alt="pixel Charmander">
+                </button>    
+            </li>
+            <li>
+                <button class="button" id="water">
+                    Water
+                    <img src="img/water.png" alt="pixel Squirtle">
+                </button>    
+            </li>
+        </ul>
     </div>
     <div id="gameinfo"></div>
-    <img src="img/pokeball.png">
     <div id="cheatsheet">
         <h5>How to play:</h5>
         <ul>
-            <li>Grass beats Water</li>
-            <li>Fire beats Grass</li>
-            <li>Water beats Fire</li>
+            <li>&#127793 Grass beats Water</li>
+            <li>&#128167 Water beats Fire</li>
+            <li>&#128293 Fire beats Grass</li>
         </ul>
+    </div>
+    <div id="footer">
+        <a href="https://github.com/theamzhao">Simulator by theamzhao</a>
     </div>
     <script src ="gameLogic.js"></script>
 </body>
