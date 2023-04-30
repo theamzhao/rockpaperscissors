@@ -43,8 +43,9 @@ img {
 
 ul {
     display: flex; 
+    flex: 1 0 auto;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     list-style: none;
     gap: 26px;
     margin: 3% 15%;
@@ -83,3 +84,8 @@ footer {
     background-color: aliceblue;
     text-align: center;
 }
+
+.header {
+    margin-top: 2%;
+}
+
