@@ -13,6 +13,7 @@ roundStatus.style.color = '#29a6e4';
 var playerScore = 0;
 var computerScore = 0;
 var round = 1;
+//&#128165 Bang emoji
 
 // GAME 
 
